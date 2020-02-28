@@ -151,7 +151,6 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
               v = sqrt(v_x*v_x + v_y*v_y);
           }
 
-          // x_ << rho * sin(phi), rho * cos(phi), v, 0, 0;
           x_ << rho * cos(phi), rho * sin(phi), v, 0, 0;
       }
 
