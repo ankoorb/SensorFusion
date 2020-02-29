@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "ukf.h"
 #include "Eigen/Dense"
 
@@ -23,10 +24,10 @@ UKF::UKF() {
   P_ = MatrixXd(5, 5);
 
   // Process noise standard deviation longitudinal acceleration in m/s^2
-  std_a_ = 3.0;
+  std_a_ = 2.5;  // Using lower process noise for smooth estimations
 
   // Process noise standard deviation yaw acceleration in rad/s^2
-  std_yawdd_ = 1.5;
+  std_yawdd_ = pow(M_PI/4, 2);  // Experimented with π/24, π/16, π/8 and π/4 (better performance)
   
   /**
    * DO NOT MODIFY measurement noise values below.
